@@ -31,7 +31,7 @@ export default function Home() {
             <div className={styles.socials}>
               <div className={styles.social}>
                 <a
-                  href="https://www.instagram.com/alexhoyer_"
+                  href="https://www.instagram.com/"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -48,7 +48,7 @@ export default function Home() {
               </div>
               <div className={styles.social}>
                 <a
-                  href="https://www.facebook.com/OfficialHoyer/"
+                  href="https://www.facebook.com/"
                   target="_blank"
                   rel="noreferrer"
                 >
