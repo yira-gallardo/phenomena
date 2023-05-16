@@ -5,6 +5,9 @@
   z-index: 999;
   padding: 20px;
 }
+.nav .logo {
+  margin-bottom: 20px;
+}
 .navActive {
   width: 400px;
   border-right: 1px solid white;
@@ -16,12 +19,26 @@
   margin-top: 10px;
   margin-left: 10px;
 }
+.nav .close {
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 10px;
+}
 .nav .menu {
   padding-top: 40px;
 }
 .nav .menu .link {
   display: block;
   font-size: 32px;
+}
+.nav .menu .link:hover {
+  color: #50fd4a;
+}
+.nav .contact {
+  margin-top: 40px;
+}
+.nav .contact .link {
+  font-size: 20px;
 }
 
 .header {
@@ -67,12 +84,13 @@
 .divider {
   width: 200px;
   height: 2px;
-  background-color: white;
+  background-color: #50fd4a;
   margin: 20px 0;
 }
 
 .pageInfo {
   padding-top: 100px;
+  padding-bottom: 100px;
 }
 .pageInfo h2 {
   font-size: 64px;
@@ -84,4 +102,58 @@
 .pageInfo h3 {
   font-size: 32px;
   margin: 20px 0;
+}
+
+.artists {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  column-gap: 20px;
+}
+.artists .artist {
+  margin-bottom: 20px;
+}
+.artist .photo {
+  background-position: center;
+  background-size: cover;
+  width: 75%;
+  height: 500px;
+  margin-bottom: 20px;
+}
+.artist h4 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 1000px) {
+  .header .headerBox {
+    width: 100%;
+    padding: 40px;
+    margin: 10px 0;
+  }
+  .navActive {
+    width: 80%;
+    border-right: 1px solid white;
+    background-color: black;
+    min-height: 100vh;
+  }
+  .nav .menu .link {
+    display: block;
+    font-size: 24px;
+  }
+
+  .pageInfo {
+    padding: 100px 20px;
+  }
+  .pageInfo h2 {
+    font-size: 32px;
+  }
+
+  .artists {
+    display: block;
+    grid-template-columns: 50% 50%;
+    column-gap: 20px;
+  }
+  .artists .artist {
+    margin-bottom: 80px;
+  }
 }

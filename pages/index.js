@@ -62,91 +62,135 @@ export default function Home() {
         <link rel="icon" href="/icon.jpg" />
       </Head>
       <main>
-        <canvas id="Matrix"></canvas>
-        <nav className={`${styles.nav} ${menuActive && styles.navActive}`}>
-          <div className={styles.burger} onClick={() => setMenuActive(true)}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="40px"
-              height="40px"
-              fill="currentColor"
-              class="bi bi-list"
-              viewBox="0 0 16 16"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
-              />
-            </svg>
+        <div className={styles.bigContainer}>
+          <canvas id="Matrix"></canvas>
+          <nav className={`${styles.nav} ${menuActive && styles.navActive}`}>
+            {menuActive ? (
+              <div
+                className={styles.close}
+                onClick={() => setMenuActive(false)}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="40px"
+                  height="40px"
+                  fill="currentColor"
+                  class="bi bi-x-lg"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+                </svg>
+              </div>
+            ) : (
+              <div
+                className={styles.burger}
+                onClick={() => setMenuActive(true)}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="40px"
+                  height="40px"
+                  fill="currentColor"
+                  class="bi bi-list"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+                  />
+                </svg>
+              </div>
+            )}
+            {menuActive && (
+              <div className={styles.menu}>
+                <Link
+                  href="/"
+                  className={styles.link}
+                  onClick={() => setMenuActive(false)}
+                >
+                  <Image
+                    src="/img/logo-blanco.png"
+                    alt="phenomena"
+                    className={styles.logo}
+                    width={1612}
+                    height={213}
+                  />
+                </Link>
+                <Link
+                  href="/music"
+                  className={styles.link}
+                  onClick={() => setMenuActive(false)}
+                >
+                  MUSIC MANAGEMENT:
+                </Link>
+                <Link
+                  href="/branding"
+                  className={styles.link}
+                  onClick={() => setMenuActive(false)}
+                >
+                  RE BRANDING:
+                </Link>
+                <Link
+                  href="/asesoria"
+                  className={styles.link}
+                  onClick={() => setMenuActive(false)}
+                >
+                  ASESORÍA CREATIVA:
+                </Link>
+                <Link
+                  href="/social"
+                  className={styles.link}
+                  onClick={() => setMenuActive(false)}
+                >
+                  SOCIAL MEDIA:
+                </Link>
+                <Link
+                  href="/stylist"
+                  className={styles.link}
+                  onClick={() => setMenuActive(false)}
+                >
+                  STYLIST:
+                </Link>
+                <Link
+                  href="/produccion"
+                  className={styles.link}
+                  onClick={() => setMenuActive(false)}
+                >
+                  PRODUCCIÓN AUDIOVISUAL:
+                </Link>
+                <Link
+                  href="/fotografia"
+                  className={styles.link}
+                  onClick={() => setMenuActive(false)}
+                >
+                  FOTOGRAFÍA:
+                </Link>
+                <div className={styles.contact}>
+                  <Link
+                    href="mailto:info@phenomena.com"
+                    className={styles.link}
+                    onClick={() => setMenuActive(false)}
+                  >
+                    info@phenomena.com
+                  </Link>
+                </div>
+              </div>
+            )}
+          </nav>
+          <div className={styles.homeContent}>
+            <section className={styles.header}>
+              <div className={styles.headerBox}>
+                <Image
+                  src="/img/logo-blanco.png"
+                  alt="phenomena"
+                  className={styles.nameImg}
+                  width={1612}
+                  height={213}
+                />
+              </div>
+            </section>
           </div>
-          {menuActive && (
-            <div className={styles.menu}>
-              <Link
-                href="/music"
-                className={styles.link}
-                onClick={() => setMenuActive(false)}
-              >
-                MUSIC MANAGEMENT:
-              </Link>
-              <Link
-                href="/branding"
-                className={styles.link}
-                onClick={() => setMenuActive(false)}
-              >
-                RE BRANDING:
-              </Link>
-              <Link
-                href="/asesoria"
-                className={styles.link}
-                onClick={() => setMenuActive(false)}
-              >
-                ASESORÍA CREATIVA:
-              </Link>
-              <Link
-                href="/social"
-                className={styles.link}
-                onClick={() => setMenuActive(false)}
-              >
-                SOCIAL MEDIA:
-              </Link>
-              <Link
-                href="/stylist"
-                className={styles.link}
-                onClick={() => setMenuActive(false)}
-              >
-                STYLIST:
-              </Link>
-              <Link
-                href="/produccion"
-                className={styles.link}
-                onClick={() => setMenuActive(false)}
-              >
-                PRODUCCIÓN AUDIOVISUAL:
-              </Link>
-              <Link
-                href="/fotografia"
-                className={styles.link}
-                onClick={() => setMenuActive(false)}
-              >
-                FOTOGRAFÍA:
-              </Link>
-            </div>
-          )}
-        </nav>
-        <div className={styles.homeContent}>
-          <section className={styles.header}>
-            <div className={styles.headerBox}>
-              <Image
-                src="/img/logo-blanco.png"
-                alt="phenomena"
-                className={styles.nameImg}
-                width={1612}
-                height={213}
-              />
-            </div>
-          </section>
-          </div>
-
+        </div>
       </main>
     </>
   );
