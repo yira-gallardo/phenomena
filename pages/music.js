@@ -7,52 +7,6 @@ import Link from "next/link";
 export default function Home() {
   const [menuActive, setMenuActive] = useState(false);
 
-  useEffect(() => {
-    const canvas = document.getElementById("Matrix");
-    const context = canvas.getContext("2d");
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const katakana =
-      "アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン";
-    const latin = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const nums = "0123456789";
-
-    const alphabet = katakana + latin + nums;
-
-    const fontSize = 16;
-    const columns = canvas.width / fontSize;
-
-    const rainDrops = [];
-
-    for (let x = 0; x < columns; x++) {
-      rainDrops[x] = 1;
-    }
-
-    const draw = () => {
-      context.fillStyle = "rgba(0, 0, 0, 0.05)";
-      context.fillRect(0, 0, canvas.width, canvas.height);
-
-      context.fillStyle = "#0F0";
-      context.font = fontSize + "px monospace";
-
-      for (let i = 0; i < rainDrops.length; i++) {
-        const text = alphabet.charAt(
-          Math.floor(Math.random() * alphabet.length)
-        );
-        context.fillText(text, i * fontSize, rainDrops[i] * fontSize);
-
-        if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-          rainDrops[i] = 0;
-        }
-        rainDrops[i]++;
-      }
-    };
-
-    setInterval(draw, 30);
-  }, []);
-
   return (
     <>
       <Head>
@@ -62,7 +16,6 @@ export default function Home() {
         <link rel="icon" href="/icon.jpg" />
       </Head>
       <main>
-        <canvas id="Matrix"></canvas>
         <nav className={`${styles.nav} ${menuActive && styles.navActive}`}>
           <div className={styles.burger} onClick={() => setMenuActive(true)}>
             <svg
@@ -134,15 +87,37 @@ export default function Home() {
           )}
         </nav>
         <div className={styles.homeContent}>
-          <section className={styles.header}>
-            <div className={styles.headerBox}>
-              <Image
-                src="/img/logo-blanco.png"
-                alt="phenomena"
-                className={styles.nameImg}
-                width={1612}
-                height={213}
-              />
+          <section className={styles.pageInfo}>
+            <div className="container">
+              <h2>MUSIC MANAGEMENT</h2>
+              <div className={styles.divider} />
+              <div className={styles.text}>
+                <p>
+                  Servicios de representación artística y relaciones públicas
+                  que se enfocan en la exposición y posicionamiento de talento.
+                </p>
+                <p>
+                  Creamos estrategias personalizadas para cada cliente,
+                  identificamos oportunidades de negocio y construimos
+                  relaciones sólidas con los medios, plataformas y líderes de
+                  opinión relevantes en la industria.
+                </p>
+                <p>
+                  &apos;eres libre de hacer lo que quieras nosotros te
+                  guiamos... mientras sea cool, or we bullying u.jk0&apos;
+                </p>
+              </div>
+              <h3>Talento:</h3>
+              <div className={styles.artistas}>
+                <h4>Juanpalitoschinos</h4>
+                <p>lorem</p>
+                <Image
+                  src="/img/artista1.jpg"
+                  width={1000}
+                  height={400}
+                  alt="artista"
+                />
+              </div>
             </div>
           </section>
         </div>
